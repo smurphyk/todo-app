@@ -1,6 +1,8 @@
 <template>
   <div>
-    <input v-model="currentTodo" @keydown.enter="addTodo()" placeholder="Add todo">
+    <md-field>
+      <md-input v-model="currentTodo" @keydown.enter="addTodo()" placeholder="Add todo"></md-input>
+      </md-field>
     <ul class="todos">
       <li v-for="todo in todos" :key="todo.id" @dblclick="editTodo(todo, true)" :class="{ completedTodo: todo.completed }">
         {{ todo.label }} <input type="checkbox" @click="completeTodo(todo)"/><button @click="removeTodo(todo)">Remove</button>
