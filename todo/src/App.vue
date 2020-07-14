@@ -2,8 +2,16 @@
   <div>
     <input v-model="currentTodo" @keydown.enter="addTodo()" placeholder="Add todo">
     <ul class="todos">
-      <li v-for="todo in todos" :key="todo.id">
-        {{ todo.label }}
+      <li v-for="todo in todos" v-if="todo.edit===false" :key="todo.id" @dblclick="editTodo(todo, true)" :class="{ completedTodo: todo.completed }">
+        {{ todo.label }} <input type="checkbox" @click="completeTodo(todo)"/><button @click="removeTodo(todo)">Remove</button>
+      </li>
+      <li v-else>
+        <input
+          class="edit-item"
+          v-model="todo.label"
+          v-focus
+          @keydown.enter="editTodo(todo, false)"
+          @focusout="editTodo(todo, false)"/>
       </li>
     </ul>
   </div>
@@ -19,8 +27,37 @@ export default {
   },
   methods: {
     addTodo() {
-      this.todos.push({id: this.todos.length, label: this.currentTodo, completed: false});
+      this.todos.push({
+        id: this.todos.length, 
+        label: this.currentTodo, 
+        completed: false,
+        edit: false
+      });
       this.currentTodo = '';
+    },
+    editTodo(todo, toggle){
+      if (toggle){
+        todo.edit = true;
+        todo.completed = false;
+      }
+      else {
+        todo.edit = false;
+      }
+    },
+    completeTodo(todo) {
+      if (event.target.checked) {
+        todo.completed = true
+      }
+      else {
+        todo.completed = false;
+      }
+    }
+  },
+  directives: {
+    focus: {
+      inserted: function (el) {
+        el.focus()
+      }
     }
   }
 };
