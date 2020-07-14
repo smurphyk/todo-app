@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input placeholder="Add todo">
+    <input v-model="currentTodo" @keydown.enter="addTodo()" placeholder="Add todo">
     <ul class="todos">
       <li v-for="todo in todos" :key="todo.id">
         {{ todo.label }}
