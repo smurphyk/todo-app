@@ -2,16 +2,8 @@
   <div>
     <input v-model="currentTodo" @keydown.enter="addTodo()" placeholder="Add todo">
     <ul class="todos">
-      <li v-for="todo in todos" v-if="todo.edit===false" :key="todo.id" @dblclick="editTodo(todo, true)" :class="{ completedTodo: todo.completed }">
+      <li v-for="todo in todos" :key="todo.id" @dblclick="editTodo(todo, true)" :class="{ completedTodo: todo.completed }">
         {{ todo.label }} <input type="checkbox" @click="completeTodo(todo)"/><button @click="removeTodo(todo)">Remove</button>
-      </li>
-      <li v-else>
-        <input
-          class="edit-item"
-          v-model="todo.label"
-          v-focus
-          @keydown.enter="editTodo(todo, false)"
-          @focusout="editTodo(todo, false)"/>
       </li>
     </ul>
   </div>
