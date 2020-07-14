@@ -1,4 +1,12 @@
 <template>
+  <div>
+    <input placeholder="Add todo">
+    <ul class="todos">
+      <li v-for="todo in todos" :key="todo.id">
+        {{ todo.label }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
