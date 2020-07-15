@@ -114,4 +114,8 @@ export default {
 </script>
 
 <style>
+.completedTodo {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
 </style>
