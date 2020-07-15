@@ -27,7 +27,7 @@
         >
         <div class="todo-div">
           <md-checkbox v-model="todo.completed"></md-checkbox>
-          <div class="todo-label" :class="{ completeTodo: todo.completed }">{{ todo.label }}</div>
+          <div class="todo-label" :class="{ completedTodo: todo.completed }">{{ todo.label }}</div>
         </div>
         <div class="todo-actions">
           <md-button class="edit-button" @click="editTodo(todo, true)">

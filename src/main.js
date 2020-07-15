@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { MdField, MdButton, MdLIst, MdCheckbox, MdIcon, MdCard } from 'vue-material/dist/components';
+import { MdField, MdButton, MdList, MdCheckbox, MdIcon, MdCard } from 'vue-material/dist/components';
 import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/black-green-dark.css'
 
