@@ -3,6 +3,7 @@
     <md-card class="main-card">
       <md-card-header>
         <div class="main-title">ToDo or not ToDo</div>
+        <hr>
         <div class="main-subtitle">The Perfect ToDo List</div>
         </md-card-header>
         <md-card-content>
@@ -31,7 +32,10 @@
         </div>
         <div class="todo-actions">
           <md-button class="edit-button" @click="editTodo(todo, true)">
-            <md-icon class="edit-img">Edit</md-icon>
+            <md-icon class="edit-img">edit</md-icon>
+          </md-button>
+          <md-button class="delete-button" @click="removeTodo(todo)">
+            <md-icon class="delete-img">delete</md-icon>
           </md-button>
         </div>
       </md-list-item>
@@ -114,8 +118,30 @@ export default {
 </script>
 
 <style>
+.main-card {
+  border: 5px outset #4fff0f;
+  padding: 1rem; 
+}
+
+.main-title {
+  font-size: 180%;
+  color: #4fff0f;
+}
+
+.main-subtitle {
+  font-size: 120%;
+}
+
+.error {
+  opacity: 0.5;
+}
+
+.edit-img, .delete-img {
+  color: #4fff0f !important;
+}
+
 .completedTodo {
   text-decoration: line-through;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 </style>
